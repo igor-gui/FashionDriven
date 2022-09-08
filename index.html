@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/harrystyles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="container-cabecalho">
+            <img src="./images/Logo.svg" class="logo">
+            <h1 class="titulo">FashionDriven</h1>
+        </div>
+    </header>
+
+    <main class="principal">
+        <section class="order">
+
+            <div class="model options">
+                <h1 class="modelTitle">Escolha o modelo</h1>
+                <div class="option">
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/tshirt.png">
+                        </div>
+                        <h2 class="objTitle">T-shirt</h2>
+                    </div>
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/Camiseta.png">
+                        </div>
+                        <h2 class="objTitle">Camiseta</h2>
+                    </div>
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/Mangalonga.png">
+                        </div>
+                        <h2 class="objTitle">Manga longa</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collar options">
+                <h1 class="collarTitle">Escolha a gola</h1>
+                <div class="option">
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/GolaV.png">
+                        </div>
+                        <h2 class="objTitle">Gola V</h2>
+                    </div>
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/GolaRedonda.png">
+                        </div>
+                        <h2 class="objTitle">Gola Redonda</h2>
+                    </div>
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/GolaPolo.png">
+                        </div>
+                        <h2 class="objTitle">Gola polo</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tissue options">
+                <h1 class="tissueTitle">Escolha o tecido</h1>
+                <div class="option">
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle"> 
+                            <img src="./images/Seda.png">
+                        </div>
+                        <h2 class="objTitle">Seda</h2>
+                    </div>
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/Algodão.png">
+                        </div>
+                        <h2 class="objTitle">Algodão</h2>
+                    </div>
+                    <div class="objToSelect">
+                        <div onclick="select(this)" class="circle">
+                            <img src="./images/Poliester.png">
+                        </div>
+                        <h2 class="objTitle">Poliéster</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ref">
+                <h1 class="imgRefTitle">Imagem de referência</h1>
+                <input class="linkImg" type="text" placeholder="Insira o link">
+                <input class="confirmBtn" onclick="confirm(this)" type="button" value="Confirmar pedido">
+            </div>
+
+        </section>
+
+        <section class="ilustration">
+            <img src="./images/ilustração.png">
+        </section>
+    </main>
+    <footer class="rodape">
+<div class="containerRodape">
+        <h2 class="lastOnes">Ultimos pedidos</h2>
+
+        <div class="box">
+            <img src="images/Blusa3.png">
+
+            <h3 class="creator"></h3>
+        </div>
+    </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./JS/script.js"></script>
+</body>
+
+</html>
