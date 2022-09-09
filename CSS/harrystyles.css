@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+b {
+    font-weight: 700;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -24,6 +28,10 @@ header .container-cabecalho {
     display: flex;
     align-items: center;
     margin-left: 80.04px;
+}
+
+.hidden {
+    display: none;
 }
 
 .container-cabecalho h1 {
@@ -198,17 +206,62 @@ footer {
     height: 342px;
     width: 1366px;
     background-color: #F2F2F2;
-
 }
 
 .containerRodape {
     width: 100%;
     height: 100%;
+    overflow-x: scroll;
 }
 
 .lastOnes {
     font-family: 'Roboto';
     font-size: 24px;
     font-weight: 400;
+    margin-top: 40px;
+    margin-left: 120px;
 
+}
+
+.lastOrders {
+    width: max-content;
+    display: flex;
+    gap: 17px;
+
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 236.46641540527344px;
+    width: 201.69358825683594px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+
+    gap: 9px;
+
+}
+
+.box img {
+    width: 180px;
+    height: 180px;
+    border-radius: 5px;
+}
+
+.box span {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.box b {
+    font-family: 'Roboto';
+    font-size: 20px;
+    text-align: left;
 }
