@@ -66,6 +66,18 @@ header .container-cabecalho {
     width: 80px;
 }
 
+.seda .sedaImg {
+    width: 54px;
+    height: 54px;
+}
+
+.cotton img {
+    width: 60px;
+}
+
+.poly img {
+    width: 60px;
+}
 
 .option {
     display: flex;
@@ -87,10 +99,10 @@ header .container-cabecalho {
     justify-content: center;
 }
 
-/* .objToSelect .circle :hover {
+.circle:hover {
     cursor: pointer;
-    border: 2px blueviolet solid; 
-} */
+    border: 2px blueviolet solid;
+}
 
 
 .options {
@@ -162,7 +174,7 @@ header .container-cabecalho {
     background-color: #404EED;
 }
 
-.ref.filled :hover{
+.filled:hover {
     cursor: pointer;
     background-color: #1b2269;
 }
