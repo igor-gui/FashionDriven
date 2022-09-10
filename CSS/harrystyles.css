@@ -109,7 +109,7 @@ header .container-cabecalho {
 
 .circle:hover {
     cursor: pointer;
-    border: 2px blueviolet solid;
+    border: #404EED 3px solid;
 }
 
 
@@ -247,8 +247,13 @@ footer {
 
 }
 
-.box img {
+.subBox {
+    overflow: hidden;
+    height: 180px;
     width: 180px;
+}
+
+.SubBox img {
     height: 180px;
     border-radius: 5px;
 }

@@ -16,18 +16,21 @@ function buscarItens() {
 
 function tratarErro(erro) {
     console.log(erro.response.data);
+    let error = erro.response.data;
+    alert(`${error}
+    Ops, não conseguimos processar sua encomenda`)
 }
 
 function renderizar(resposta) {
 
     const ArrayItens = resposta.data;
-        
+    console.log(ArrayItens);
     const lastOrders = document.querySelector('.lastOrders');
     lastOrders.innerHTML = '';
 
     ArrayItens.forEach(element => {
-        lastOrders.innerHTML += `<div onclick="orderingAgain(this.querySelector('.data'))" class="box">
-                                    <img src="${element.image}">
+        lastOrders.innerHTML += `<div onclick="ordering(this.querySelector('.data'))" class="box">
+                                    <div class="SubBox"><img src="${element.image}"></div>
                                     <h3 class="creator"><b>Criador: </b><span>${element.owner}</span></h3>
                                     <div class="hidden data">
                                     <div class="model" >${element.model}</div>
@@ -42,7 +45,16 @@ function renderizar(resposta) {
 
 }
 
-function orderingAgain(item){
+function ordering(item) {
+    const confirmation = confirm('Deseja pedir a pela selecionada?');
+    if (confirmation) {
+
+        alert('Isso aí!! Sua solicitação foi enviada ao nosso servidor! :)');
+        orderingAgain(item);
+    }
+}
+
+function orderingAgain(item) {
     const data = toArray(item.children);
     console.log(data);
 
@@ -57,6 +69,7 @@ function orderingAgain(item){
     console.log(orderObject);
     const chamar = axios.post(url, orderObject);
     chamar.then(buscarItens);
+    chamar.catch(tratarErro);
 }
 
 function select(objToSelect) {
@@ -81,31 +94,39 @@ linkImg.addEventListener("keyup", coloredbutton);
 
 function coloredbutton() {
     const selecteds = document.querySelectorAll('.selected');
-    if (linkImg.value.startsWith('https://') && selecteds.length === allOptions.length) {
+    if ((linkImg.value.startsWith('https://') || linkImg.value.startsWith('http://')) && selecteds.length === allOptions.length) {
         confirmBtn.classList.add('filled');
         confirmBtn.setAttribute("onclick", "sendToAPi()")
     }
 }
 
 function sendToAPi() {
-    const selecteds = document.querySelectorAll('.selected');
-    const data = toArray(selecteds);
-    const dataTxt = [linkImg.value];
-    console.log(selecteds)
-    selecteds.forEach(element => {
-        dataTxt.push(element.parentNode.querySelector('.hidden').textContent);
-    });
-    const orderObject = {
-        image: dataTxt[0],
-        material: dataTxt[3],
-        model: dataTxt[1],
-        neck: dataTxt[2],
-        owner: user,
-        author: user
+    const confirmation = confirm('Você está certo disso?');
+
+    if ((linkImg.value.startsWith('https://') || linkImg.value.startsWith('http://')) && confirmation) {
+        alert('Isso aí!! A solicitação foi enviada ao nosso servidor! :)');
+        const selecteds = document.querySelectorAll('.selected');
+        const data = toArray(selecteds);
+        const dataTxt = [linkImg.value];
+        console.log(selecteds)
+        selecteds.forEach(element => {
+            dataTxt.push(element.parentNode.querySelector('.hidden').textContent);
+        });
+        const orderObject = {
+            image: dataTxt[0],
+            material: dataTxt[3],
+            model: dataTxt[1],
+            neck: dataTxt[2],
+            owner: user,
+            author: user
+        }
+        console.log(orderObject);
+        const chamar = axios.post(url, orderObject);
+        chamar.then(buscarItens);
+        chamar.catch(tratarErro);
+    } else {
+        alert('Para fazer a solicitação confirme o pedido e digite um Link válido');
     }
-    console.log(orderObject);
-    const chamar = axios.post(url, orderObject);
-    chamar.then(buscarItens);
 }
 
 
