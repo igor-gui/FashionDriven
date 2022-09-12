@@ -5,7 +5,7 @@ const confirmBtn = document.querySelector('.confirmBtn');
 const allOptions = document.querySelectorAll('.options');
 
 buscarItens();
-const user = prompt("OLAR, QUAL SEU NOME?");
+const user = prompt("OLÁ, QUAL SEU NOME?");
 
 function buscarItens() {
     const promessa = axios.get(url);
@@ -16,9 +16,11 @@ function buscarItens() {
 
 function tratarErro(erro) {
     console.log(erro.response.data);
-    let error = erro.response.data;
-    alert(`${error}
-    Ops, não conseguimos processar sua encomenda`)
+    let error = erro.response.status;
+    alert(` 
+            Error ${error}: ${erro.response.data} 
+
+            Ops, não conseguimos processar a operação`)
 }
 
 function renderizar(resposta) {
@@ -46,7 +48,7 @@ function renderizar(resposta) {
 }
 
 function ordering(item) {
-    const confirmation = confirm('Deseja pedir a pela selecionada?');
+    const confirmation = confirm('Deseja pedir a peça selecionada?');
     if (confirmation) {
 
         alert('Isso aí!! Sua solicitação foi enviada ao nosso servidor! :)');
@@ -102,8 +104,8 @@ function coloredbutton() {
 
 function sendToAPi() {
     const confirmation = confirm('Você está certo disso?');
-
-    if ((linkImg.value.startsWith('https://') || linkImg.value.startsWith('http://')) && confirmation) {
+    const selecteds = document.querySelectorAll('.selected');
+    if ((linkImg.value.startsWith('https://') || linkImg.value.startsWith('http://')) && confirmation && selecteds.length === allOptions.length) {
         alert('Isso aí!! A solicitação foi enviada ao nosso servidor! :)');
         const selecteds = document.querySelectorAll('.selected');
         const data = toArray(selecteds);
@@ -125,7 +127,7 @@ function sendToAPi() {
         chamar.then(buscarItens);
         chamar.catch(tratarErro);
     } else {
-        alert('Para fazer a solicitação confirme o pedido e digite um Link válido');
+        alert('Para fazer a solicitação, por favor preencha todos os dados e confirme o pedido');
     }
 }
 
